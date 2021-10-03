@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contacts</title>
+    <link rel="stylesheet" href="css/contact-style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body style="background-color: aqua;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand" style="font-family: magneto;">Contact BooK Plus</a>
+        <div class="navbar-nav">
+        </div>
+    </nav>
+    <br/>
+    <h2>Add Contact: </h2>
+    <br/>
+    <form id="editForm">
+        <div class="row m-2 text-center">
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input type="text" id="firstname" name="firstname" placeholder="FirstName" style="border: 1px solid rgb(46, 44, 51);">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input type="text" id="lastname" name="lastname" placeholder="Lastname" style="border: 1px solid rgb(46, 44, 51);">
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row m-2 text-center">
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input type="text" id="mobile" name="mobile" placeholder="Mobile" style="border: 1px solid rgb(46, 44, 51);">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="md-form mb-0">
+                    <input type="text" id="email" name="email" placeholder="Email" style="border: 1px solid rgb(46, 44, 51);">
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row m-2">
+            <label for="avatarLabel">Select a File</label>
+            <input type="file" name="avatar" id="avatar"><br/>
+        </div>
+        <br/>
+        <button type="submit" id="submitForm" class="fs-2"><i class="fas fa-check-circle"></i></button>
+    </form>
+    <br/>
+    <button id="homeLink" type="button" class="fs-2"><i class="fas fa-home"></i></button>
+    <script src="js/config.js"></script>
+    <script>
+        document.getElementById("submitForm").addEventListener('click', submitForm);
+        document.getElementById("homeLink").addEventListener('click', homeLink);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            const form = new FormData(document.querySelector('#editForm'));
+            form.append('apiKey', apiKey);
+
+            fetch(rootPath + 'controller/insert-contact/', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, *.*'
+                    },
+                    body: form
+                })
+                .then(function(response) {
+                    return response.text();
+                })
+                .then(function(data) {
+                    if (data == "1") {
+                        alert("Contact Added!");
+                        homeLink();
+                    } else {
+                        alert(data);
+                        homeLink();
+                    }
+
+                })
+        }
+
+        function homeLink() {
+            window.open("index.html", "_self");
+        }
+    </script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
