@@ -113,13 +113,6 @@ input {
 }
 
 
-/* Styling The Labels for The Inputs */
-
-label {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
 /* Styling The Submit Button */
 
 #submitForm {
@@ -209,6 +202,9 @@ label {
     border: 2px solid rgb(243, 107, 107);
     color: white;
 }
+
+
+/* Styling Labels for Inputs */
 
 label {
     font-family: Arial, Helvetica, sans-serif;
