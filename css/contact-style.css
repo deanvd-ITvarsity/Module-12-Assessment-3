@@ -6,6 +6,9 @@ body {
     background-color: aqua;
 }
 
+
+/* Styling Sumbit Api Button  */
+
 #submitApiKey {
     background-color: greenyellow;
     padding: 5px;
@@ -129,6 +132,26 @@ input {
 }
 
 
+/* Styling Labels for Inputs */
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+/* Styling The Avatar Image For The Edit Page */
+
+#avatarImage img {
+    border: 2px solid rgb(46, 44, 51);
+    border-radius: 3px;
+}
+
+#avatarImage img:hover {
+    border: 2px solid rgb(150, 147, 147);
+}
+
+
 /* Styling The Submit Button */
 
 #submitForm {
@@ -217,26 +240,6 @@ input {
     background-color: red;
     border: 2px solid rgb(243, 107, 107);
     color: white;
-}
-
-
-/* Styling Labels for Inputs */
-
-label {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-}
-
-
-/* Styling The Avatar Image For The Edit Page */
-
-#avatarImage img {
-    border: 2px solid rgb(46, 44, 51);
-    border-radius: 3px;
-}
-
-#avatarImage img:hover {
-    border: 2px solid rgb(150, 147, 147);
 }
 
 
